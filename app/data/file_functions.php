@@ -35,3 +35,50 @@ function get_todo($todo) {
 
   return false;
 }
+
+function add_todo($todo) {
+  $todos = get_todos();
+  var_dump($todos);
+  $arr = (object) [
+    "todo" => $todo
+  ];
+
+  $todos[] = $arr;
+
+  set_data($todos);
+}
+
+function update_todo($original_todo, $new_todo) {
+  $todos = get_todos();
+
+  foreach ($todos as $item) {
+    if ($item->todo == $original_todo) {
+      $item->todo = $new_todo;
+      break;
+    }
+  }
+
+  set_data($todos);
+}
+
+function delete_todo($todo) {
+  $todos = get_todos();
+
+  for ($i = 0; $i < count($todos); $i++) {
+    if ($todos[$i]->todo === $todo) {
+      unset($todos[$i]);
+      break;
+    }
+  }
+
+  $new_todos = array_values($todos);
+
+  set_data($new_todos);
+}
+
+function set_data($items) {
+  $file_name = CONFIG['data_file'];
+  $json = json_encode($items);
+
+  file_put_contents($file_name, $json);
+}
