@@ -1,8 +1,9 @@
 <?php
 
 require("app/app.php");
+$data = new DataProvider(CONFIG['data_file']);
 
-view('index', get_todos());
+view('index', $data->get_todos());
 
 
 // var_dump($_SERVER["REQUEST_URI"]);

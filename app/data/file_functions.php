@@ -1,5 +1,6 @@
 <?php
 
+require('todo.class.php');
 function get_data() {
   $file_name = CONFIG['data_file'];
 
@@ -38,12 +39,14 @@ function get_todo($todo) {
 
 function add_todo($todo) {
   $todos = get_todos();
-  var_dump($todos);
-  $arr = (object) [
-    "todo" => $todo
-  ];
 
-  $todos[] = $arr;
+  $todos[] = new Todo($todo);
+
+  // $arr = (object) [
+  //   "todo" => $todo
+  // ];
+
+  // $todos[] = $arr;
 
   set_data($todos);
 }
