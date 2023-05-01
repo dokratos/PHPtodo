@@ -8,7 +8,7 @@ if (is_post()) {
   if (empty($todo)) {
     // TODO
   } else {
-    add_todo($todo);
+    Data::add_todo($todo);
     redirect('index.php');
   }
 }

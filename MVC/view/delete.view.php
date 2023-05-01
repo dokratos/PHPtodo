@@ -5,12 +5,12 @@
     </div>
   </div>
   <div class="row">
-    <h1> Are you sure you want to delete <?= $model->todo ?>?</h1>
+    <h1> Are you sure you want to delete <?= $model->description ?>?</h1>
   </div>
 </div>
 <div class="row">
   <form action="" method="POST">
-    <input type="hidden" name="todo" value="<?= $model->todo ?>" />
+    <input type="hidden" name="todo" value="<?= $model->id ?>" />
     <input type="submit" value="delete ToDo" />
   </form>
 </div>

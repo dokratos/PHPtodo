@@ -6,10 +6,10 @@
   </div>
   <div class="row">
     <form action="" method="POST">
-      <input type="hidden" name="original-todo" value="<?= $model->todo ?>" />
+      <input type="hidden" name="original-todo" value="<?= $model->id ?>" />
       <div class="form-group">
         <label for="todo">Todo:</label>
-        <textarea name="todo" id="todo"><?= $model->todo ?></textarea>
+        <textarea name="todo" id="todo"><?= $model->description ?></textarea>
         <input type="submit" value="Edit ToDo" />
       </div>
     </form>

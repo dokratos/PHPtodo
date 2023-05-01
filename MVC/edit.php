@@ -9,7 +9,7 @@ if (is_get()) {
     die();
   }
 
-  $todo = get_todo($key);
+  $todo = Data::get_todo($key);
   view('edit', $todo);
 }
 
@@ -18,7 +18,7 @@ if (is_post()) {
   $original_todo = sanitize(($_POST['original-todo']));
 
   if (!empty($todo)) {
-    update_todo($original_todo, $todo);
+    Data::update_todo($original_todo, $todo);
     redirect('index.php');
   }
 }

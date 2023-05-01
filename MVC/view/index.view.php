@@ -11,9 +11,9 @@
     <table class="table table-striped">
       <?php foreach ($model as $item) : ?>
       <tr>
-        <td><a href="edit.php?key=<?= $item->todo ?>">Edit</a></td>
-        <td><?= $item->todo ?></td>
-        <td><a href="delete.php?key=<?= $item->todo ?>">Delete</a></td>
+        <td><a href="edit.php?key=<?= $item->id ?>">Edit</a></td>
+        <td><?= $item->description ?></td>
+        <td><a href="delete.php?key=<?= $item->id ?>">Delete</a></td>
       </tr>
       <?php endforeach; ?>
   </div>
