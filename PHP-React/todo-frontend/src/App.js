@@ -1,18 +1,18 @@
-// import logo from './logo.svg';
-// import './App.css';
 import axios from 'axios';
+import './App.css';
 import { useEffect } from 'react';
+import Form from './components/Form';
 
 
 function App() {
-  useEffect(() => {
-    axios.get('http://localhost:8888').then((res) => console.log(res));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('http://localhost:8888').then((res) => console.log(res));
+  // }, []);
 
   return (
-    <div>
-
-    </div>
+    <main className='App'>
+      <Form />
+    </main>
   );
 }
 

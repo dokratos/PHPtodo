@@ -1,9 +1,5 @@
 <?php
 
-// 'db' => 'mysql:dbname=ToDo;host=localhost;port=8889',
-// 'db_user' => 'root',
-// 'db_password' => 'root',
-
 class DB {
   private $server = 'localhost';
   private $db_name = 'ToDo';

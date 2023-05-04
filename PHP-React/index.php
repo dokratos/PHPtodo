@@ -1,24 +1,39 @@
 <?php
 
-require('DB.php');
-require('TodoClass.class.php');
+require('app/app.php');
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: *");
 
+function is_post() {
+  return $_SERVER['REQUEST_METHOD'] === 'POST';
+}
+
+if (is_post()) {
+  // $todo = sanitize($_POST['todo']);
+  echo('there was a request');
+  if (empty($todo)) {
+    // TODO
+  } else {
+    Api::add_todo($todo);
+    // redirect('index.php');
+  }
+}
+
 
 function getRequest() {
-  $connection = new DB();
-  $db = $connection->connect();
+  $data = Api::get_todos();
+  // $connection = new DB();
+  // $db = $connection->connect();
 
-  if ($db == null) {
-      return [];
-  }
+  // if ($db == null) {
+  //     return [];
+  // }
 
-  $query = $db->query('SELECT * FROM todos');
-  $data = $query->fetchAll(PDO::FETCH_CLASS, 'TodoClass');
+  // $query = $db->query('SELECT * FROM todos');
+  // $data = $query->fetchAll(PDO::FETCH_CLASS, 'TodoClass');
 
-  $query = null;
-  $db = null;
+  // $query = null;
+  // $db = null;
 
   return json_encode($data);
 };
